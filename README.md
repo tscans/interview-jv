@@ -20,12 +20,10 @@ The app includes several key screens:
 3. Repository Details - View specific repository activity
 4. Activity Breakdown - Analyze activity types and patterns
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 20px 0;">
-  <img src="assets/demo/1.png" alt="Demo 1" style="width: 100%; max-width: 300px;"/>
-  <img src="assets/demo/2.png" alt="Demo 2" style="width: 100%; max-width: 300px;"/>
-  <img src="assets/demo/3.png" alt="Demo 3" style="width: 100%; max-width: 300px;"/>
-  <img src="assets/demo/4.png" alt="Demo 4" style="width: 100%; max-width: 300px;"/>
-</div>
+<img src="assets/demo/1.png" alt="Demo 1" width="300"/>
+<img src="assets/demo/2.png" alt="Demo 2" width="300"/>
+<img src="assets/demo/3.png" alt="Demo 3" width="300"/>
+<img src="assets/demo/4.png" alt="Demo 4" width="300"/>
 
 ## Technical Details
 
