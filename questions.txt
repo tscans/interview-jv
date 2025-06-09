@@ -1,11 +1,11 @@
 Questions
 
 1. What qualifies as “recent” activity? (last 30 days, last 100 events, etc.)
-2. What is the main goal: monitoring individual users or surfacing trends across many users?
-3. What do you mean by flag?
-4. Is there an example of what a correct output looks like?
- 
-
+2. Does it make sense to add pagination?
+3. Is there specific error handling to look out for?
+4. What is the main goal: monitoring individual users or surfacing trends across many users?
+5. What do you mean by flag?
+6. Is there an example of what a correct output looks like?
 
 
 Acceptance Criteria

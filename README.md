@@ -1,50 +1,73 @@
-# Welcome to your Expo app 👋
+# JellyGit 📊
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Full Disclaimer - I went a little outside the line with this one but I really wanted to showcase React Native work. I kept the work to under 2 hours as per the instructions. 
 
-## Get started
+JellyGit is a React Native application that provides insights into GitHub user activity. Built with Expo, it helps track development trends across projects by analyzing public GitHub activity.
 
-1. Install dependencies
+## Features
 
+- View GitHub user activity across their repositories
+- Analyze top 3 most common activity types per repository
+- Identify repositories owned by the user
+- Clean, modern UI with intuitive navigation
+
+## Demo
+
+The app includes several key screens:
+
+1. User Search - Find GitHub users to analyze
+2. Activity Overview - See total activity across repositories
+3. Repository Details - View specific repository activity
+4. Activity Breakdown - Analyze activity types and patterns
+
+![Demo Screenshots](assets/demo/1.png)
+![Demo Screenshots](assets/demo/2.png)
+![Demo Screenshots](assets/demo/3.png)
+![Demo Screenshots](assets/demo/4.png)
+
+## Technical Details
+
+- Built with React Native and Expo
+- Uses GitHub's public API (no authentication required)
+- Implements file-based routing
+- Responsive design for both iOS and Android
+
+## Getting Started
+
+1. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Start the app
-
+2. Start the development server:
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. Run on your preferred platform:
+   - iOS Simulator
+   - Android Emulator
+   - Physical device using Expo Go
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Project Structure
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- `/app` - Main application code
+- `/assets` - Images and other static assets
+- `/components` - Reusable React components
+- `/services` - API integration and data processing
 
-## Get a fresh project
+## Development
 
-When you're ready, run:
+The project uses Expo's file-based routing system. You can start developing by editing files in the `app` directory.
 
-```bash
-npm run reset-project
-```
+## Requirements
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- Node.js 14 or higher
+- npm or yarn
+- Expo CLI
+- iOS Simulator (for iOS development)
+- Android Studio (for Android development)
 
-## Learn more
+## License
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This project was created as part of a technical interview for Jellyvision.
