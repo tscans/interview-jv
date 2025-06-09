@@ -1,12 +1,5 @@
-import { GitHubEvent } from "../../../types/extractedTypes";
 import { GitHubActivityResponse } from "../../../types/github";
-import { createRepoAnalysis, groupEventsByRepo, handleError } from "../../../utils/backend";
-
-const GITHUB_API_BASE_URL = 'https://api.github.com';
-const GITHUB_API_HEADERS = {
-    'Accept': 'application/vnd.github.v3+json',
-    'User-Agent': 'GitHub-Activity-Analyzer'
-};
+import { createRepoAnalysis, fetchRepositoriesDetails, fetchUserEvents, groupEventsByRepo, handleError } from "../../../utils/backend";
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
@@ -17,23 +10,13 @@ export async function GET(request: Request) {
     }
 
     try {
-        // Fetch user's recent events
-        const eventsResponse = await fetch(
-            `${GITHUB_API_BASE_URL}/users/${username}/events/public`,
-            {
-                headers: GITHUB_API_HEADERS
-            }
-        );
-
-        if (!eventsResponse.ok) {
-            return handleError(new Error(`GitHub API error: ${eventsResponse.statusText}`));
-        }
-
-        const events: GitHubEvent[] = await eventsResponse.json();
+        const events = await fetchUserEvents(username);
         const eventsByRepoId = groupEventsByRepo(events);
 
+        const repoOwnershipMap = await fetchRepositoriesDetails(eventsByRepoId, username);
+
         const repoAnalysis = Object.values(eventsByRepoId).map(repoEvents => 
-            createRepoAnalysis(repoEvents, username)
+            createRepoAnalysis(repoEvents, repoOwnershipMap[repoEvents[0].repo.name])
         );
 
         const response: GitHubActivityResponse = {
