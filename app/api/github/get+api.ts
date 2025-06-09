@@ -49,9 +49,6 @@ export async function GET(request: Request) {
             return acc;
         }, {} as Record<string, GitHubEvent[]>);
 
-        console.log('eventsByRepoId');
-        console.log(JSON.stringify(eventsByRepoId, null, 2));
-
         const usernameLower = username.toLowerCase();
 
         const repoAnalysis: RepoAnalysis[] = [];
@@ -71,7 +68,19 @@ export async function GET(request: Request) {
                 return acc;
             }, {} as Record<string, ActivityCount>);
 
-            const topActivitiesSorted = Object.values(topActivities).sort((a, b) => b.count - a.count).slice(0, 3);
+            const renameEvent = (event: string) => {
+                return event
+                  .replace(/Event$/, '')
+                  .replace(/([a-z])([A-Z])/g, '$1 $2')
+                  .trim();
+            };
+
+            const topActivitiesRenamed = Object.entries(topActivities).map(([key, value]) => ({
+                type: renameEvent(key),
+                count: value.count,
+            }));
+
+            const topActivitiesSorted = Object.values(topActivitiesRenamed).sort((a, b) => b.count - a.count).slice(0, 3);
             const isOwner = events[0].actor.login.toLowerCase() === usernameLower;
             const repoName = events[0].repo.name;
             const repoUrl = events[0].repo.url;

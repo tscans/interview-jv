@@ -42,7 +42,7 @@ export const Header = () => {
                     Discover and explore GitHub repositories
                 </Text>
             </View>
-            <View className="mb-4 flex-row items-center mt-8 mb-8">
+            <View className="flex-row items-center mt-8 mb-8">
                 <TextInput
                     placeholder="Search repositories..."
                     placeholderTextColor="#94A3B8"
@@ -64,6 +64,7 @@ export const Header = () => {
                     onChangeText={setSearchQuery}
                     onSubmitEditing={handleSubmit}
                     returnKeyType="search"
+                    autoCorrect={false}
                 />
                 <TouchableOpacity 
                     onPress={handleSubmit}
