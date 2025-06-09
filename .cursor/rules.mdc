@@ -1,0 +1,44 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description: 
+globs: 
+alwaysApply: true
+---
+This project is a React Native Expo project.
+It has a backend that is the new Expo API routes.
+We use tabs(4) not spaces.
+API routes are either a POST or a GET and look like the following:
+
+const handler = async (request: Request) => {
+    return Response.json({});
+}
+
+export async function POST(request: Request) {
+    return await handler(request);
+}
+
+Some react state is local to the component. But when it isn't, we use Jotai atoms.
+Defined in the /state folder. 
+It looks like this:
+
+export const stepperAtom = atom<number>(0);
+
+export const useStepper = () => {
+    const [stepper, setStepper] = useAtom(stepperAtom);
+
+    return {
+        stepper,
+        setStepper,
+    }
+}
+
+New components go in the /components folder. 
+They DO NOT go in the /app directory - that is for new pages/screens.
+So DO NOT make a /app/components directory and put components in it.
+
+STYLING
+Use NativeWind wherever possible. 
