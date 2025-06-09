@@ -1,24 +1,18 @@
 import { GitHubActivityResponse } from '@/types/github';
 
-interface ActivityCount {
-    type: string;
-    count: number;
-}
-
-interface RepoAnalysis {
-    repoName: string;
-    repoUrl: string;
-    isOwner: boolean;
-    topActivities: ActivityCount[];
-}
-
-export async function fetchGitHubActivity(username: string): Promise<GitHubActivityResponse> {
-    const response = await fetch(`/api/github/get?username=${encodeURIComponent(username)}`);
-    
-    if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Failed to fetch GitHub activity');
+export async function fetchGitHubActivity(username: string): Promise<{data: GitHubActivityResponse | null, error: string | null}> {
+    try{
+        const response = await fetch(`/api/github/get?username=${encodeURIComponent(username)}`); 
+        return {
+            data: await response.json(),
+            error: null,
+        }
     }
-
-    return response.json();
+    catch(error: any){
+        console.error('Error fetching GitHub activity:', error);
+        return {
+            data: null,
+            error: error.message || 'Failed to fetch GitHub activity',
+        }
+    }
 }

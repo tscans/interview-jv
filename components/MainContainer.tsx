@@ -1,13 +1,17 @@
 import { Body } from "@/components/Body";
 import { Header } from "@/components/Header";
-import { View } from "react-native";
+import { ScrollView } from "react-native";
 
 export const MainContainer = () => {
-    //fetchGitHubActivity
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ScrollView
+            style={{
+                backgroundColor:'white',
+                flex:1,
+            }}
+        >
             <Header />
             <Body />
-        </View>
+        </ScrollView>
     )
 }   
