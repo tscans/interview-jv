@@ -32,6 +32,9 @@ export const Body = () => {
             {githubData.repositories.map((repo: RepoAnalysis, index: number) => (
                 <RepositoryCard key={index} repo={repo} />
             ))}
+            {githubData.repositories.length === 0 && (
+                <Text className="text-gray-500 text-lg">No repositories found</Text>
+            )}
         </View>
     );
 }   

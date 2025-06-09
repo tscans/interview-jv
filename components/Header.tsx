@@ -3,7 +3,7 @@ import { useGithubData } from "@/state/githubDataAtom";
 import { useIsLoading } from "@/state/isLoadingAtom";
 import { fetchGitHubActivity } from "@/utils/api";
 import { useState } from "react";
-import { ActivityIndicator, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export const Header = () => {
@@ -21,7 +21,8 @@ export const Header = () => {
         const {data, error} = await fetchGitHubActivity(searchQuery);
         setIsLoading(false);
         if(error){
-            console.error('Error fetching GitHub activity:', error);
+            Alert.alert('Error', error);
+            setGithubData(null);
         }
         else{
             setGithubData(data);
