@@ -1,6 +1,6 @@
-import { GitHubEvent } from "@/types/extractedTypes";
-import { GitHubActivityResponse } from "@/types/github";
-import { createRepoAnalysis, groupEventsByRepo, handleError } from "@/utils/backend";
+import { GitHubEvent } from "../../../types/extractedTypes";
+import { GitHubActivityResponse } from "../../../types/github";
+import { createRepoAnalysis, groupEventsByRepo, handleError } from "../../../utils/backend";
 
 const GITHUB_API_BASE_URL = 'https://api.github.com';
 const GITHUB_API_HEADERS = {
@@ -40,8 +40,6 @@ export async function GET(request: Request) {
             username: username,
             repositories: repoAnalysis,
         }
-
-        console.log('response 333333');
 
         return new Response(JSON.stringify(response), {
             status: 200,

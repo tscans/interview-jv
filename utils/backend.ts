@@ -1,5 +1,5 @@
-import { GitHubEvent } from "@/types/extractedTypes";
-import { ActivityCount, RepoAnalysis } from "@/types/github";
+import { GitHubEvent } from "../types/extractedTypes";
+import { ActivityCount, RepoAnalysis } from "../types/github";
 
 export const handleError = (error: Error) => {
     console.error('Error fetching GitHub data:', error);
