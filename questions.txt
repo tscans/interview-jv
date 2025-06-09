@@ -6,6 +6,8 @@ Questions
 4. What is the main goal: monitoring individual users or surfacing trends across many users?
 5. What do you mean by flag?
 6. Is there an example of what a correct output looks like?
+7. A simple way to determine if the user is the owner is by the name of the repo - so we don't have to hit the api too much - is this okay?
+8. Assuming it is not, is there a preferred way to cache or limit the api calls?
 
 
 Acceptance Criteria
