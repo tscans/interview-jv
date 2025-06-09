@@ -1,11 +1,3 @@
-export interface GitHubEvent {
-    type: string;
-    repo: {
-        name: string;
-        url: string;
-    };
-}
-
 export interface ActivityCount {
     type: string;
     count: number;
