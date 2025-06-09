@@ -30,18 +30,17 @@ The app includes several key screens:
 - Built with React Native and Expo
 - Uses GitHub's public API (no authentication required)
 - Implements file-based routing
-- Responsive design for both iOS and Android
 
 ## Getting Started
 
 1. Install dependencies:
    ```bash
-   npm install
+   yarn install
    ```
 
 2. Start the development server:
    ```bash
-   npx expo start
+   yarn start
    ```
 
 3. Run on your preferred platform:
@@ -56,14 +55,44 @@ The app includes several key screens:
 - `/components` - Reusable React components
 - `/services` - API integration and data processing
 
+## Technical Architecture
+
+### API Integration
+The app uses GitHub's public API through a dedicated route at `/app/api/github/route.ts`. This route handles:
+- Fetching user activity data
+- Processing repository contributions
+- Calculating activity type frequencies
+- Identifying owned repositories
+
+### State Management
+The `/app/state` directory contains our state management logic:
+- User activity state
+- Repository data
+- Loading and error states
+- Activity type aggregations
+
+### Components
+Key components are organized in the `/app/components` directory:
+- User search interface
+- Activity visualization
+- Repository list
+- Activity type breakdown
+
+### Testing
+The project includes comprehensive tests in the `/__tests__` directory:
+- Unit tests for API integration
+- Component rendering tests
+- State management tests
+- Integration tests for the full user flow
+
 ## Development
 
 The project uses Expo's file-based routing system. You can start developing by editing files in the `app` directory.
 
 ## Requirements
 
-- Node.js 14 or higher
-- npm or yarn
+- Node.js v20.19.0
+- Yarn (recommended) or npm
 - Expo CLI
 - iOS Simulator (for iOS development)
 - Android Studio (for Android development)
